@@ -33,7 +33,6 @@ Here's a walkthrough of implemented user stories:
 ![](GzWJVYaA.gif)
 
 <img src='https://i.imgur.com/YL4g5qJ.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-https://i.imgur.com/YL4g5qJ.mp4
 
 GIF created with [Kap](https://getkap.co/).
 
