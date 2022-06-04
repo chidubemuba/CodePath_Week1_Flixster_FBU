@@ -1,8 +1,8 @@
-# Project 1 - *Flixster_FBU*
+# Project 1 - Flixster_FBU
 
 **Name of your app** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **X** hours spent in total
+Time spent: 24 hours spent in total
 
 ## User Stories
 
@@ -30,7 +30,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/vDMNqvR.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='[https://i.imgur.com/vDMNqvR.gif](https://submissions.us-east-1.linodeobjects.com/metau_android/GzWJVYaA.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
 
