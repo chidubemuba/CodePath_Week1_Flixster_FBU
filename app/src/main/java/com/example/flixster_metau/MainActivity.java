@@ -32,12 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // review placeholder
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
 
-
+             
         movies = new ArrayList<>();
 
         MovieAdapter movieAdapter = new MovieAdapter(this, movies);
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
+            // review placeholder
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");
