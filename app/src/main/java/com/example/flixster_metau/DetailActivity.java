@@ -23,8 +23,8 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
-        tvTitle = (TextView) findViewById(R.id.tvTitle);
+         
+        tvTitle = (TextView) findViewById(R.id.tvTitle); //similarly it will be beneficial to implement this in ViewBinding way :)
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVoteAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
 

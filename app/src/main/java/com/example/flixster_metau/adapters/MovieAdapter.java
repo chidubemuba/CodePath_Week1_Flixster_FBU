@@ -36,7 +36,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d("MovieAdapter","onCreateViewHolder");
+        Log.d("MovieAdapter","onCreateViewHolder"); //ditto
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false );
         return new ViewHolder(movieView);
     }
@@ -44,7 +44,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d("MovieAdapter", "onCreateViewHolder");
+        Log.d("MovieAdapter", "onCreateViewHolder"); //ditto
         Movie movie = movies.get(position);
         
         holder.bind(movie);
@@ -65,13 +65,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTitle);
+            tvTitle = itemView.findViewById(R.id.tvTitle); 
                tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             itemView.setOnClickListener(this);
-
-
-
         }
 
         public void bind(Movie movie) {
@@ -79,15 +76,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             tvOverview.setText(movie.getOverview());
 
             int radius = 25; // corner radius, higher value = more rounded
-//            int margin = 10; // crop margin, set to 0 for corners with no crop
+//            int margin = 10; // crop margin, set to 0 for corners with no crop //Let's strip this test code
 
              String imageUrl;
              if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-                 imageUrl = movie.getBackdropPath();
+                 imageUrl = movie.getBackdropPath(); //it looks like we only have this and the placeholder that will be different, can we only put these
+                 // into the if clause instead of duplicating the whole Glide.with(...).(...).(...)...
                  Glide.with(context)
                          .load(imageUrl)
-//                         .centerCrop()
-//                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2)
+//                         .centerCrop() //ditto
+//                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2) //ditto
                          .transform(new RoundedCorners(radius))
                          .placeholder(R.drawable.backimg)
                          .into(ivPoster);
@@ -97,14 +95,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                  Glide.with(context)
                          .load(imageUrl)
                          .fitCenter()
-//                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2)
+//                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2) //ditto
                          .transform(new RoundedCorners(radius))
                          .placeholder(R.drawable.image)
                          .into(ivPoster);
              }
 
 
-//            Glide.with(context)
+//            Glide.with(context) //ditto
 //                    .load(imageUrl)
 //                    .centerCrop()
 ////                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2)
@@ -117,7 +115,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
 
         @Override
         public void onClick(View v) {
-            // gets item position
+            // gets item position //can we eliminate these comments
             int position = getAdapterPosition();
             // make sure the position is valid, i.e. actually exists in the view
             if (position != RecyclerView.NO_POSITION) {
