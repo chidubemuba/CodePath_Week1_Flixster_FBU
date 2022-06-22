@@ -49,9 +49,6 @@ Here's a walkthrough of implemented user stories:
 -Phil Review
 
 
-## Challenges encountered while building the app.
-
-
 ## License
 
     Copyright [2022] [Chidubem Uba]
