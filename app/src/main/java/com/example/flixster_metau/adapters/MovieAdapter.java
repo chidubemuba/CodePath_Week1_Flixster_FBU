@@ -9,19 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.target.Target;
-import com.example.flixster_metau.DetailActivity;
+import com.example.flixster_metau.MovieDetailActivity;
 import com.example.flixster_metau.R;
 import com.example.flixster_metau.modules.Movie;
-
 import org.parceler.Parcels;
-
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
@@ -36,20 +32,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        Log.d("MovieAdapter","onCreateViewHolder");
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false );
         return new ViewHolder(movieView);
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Log.d("MovieAdapter", "onCreateViewHolder");
         Movie movie = movies.get(position);
-        
         holder.bind(movie);
-
-
     }
 
     @Override
@@ -66,12 +56,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-               tvOverview = itemView.findViewById(R.id.tvOverview);
+            tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
             itemView.setOnClickListener(this);
-
-
-
         }
 
         public void bind(Movie movie) {
@@ -79,15 +66,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             tvOverview.setText(movie.getOverview());
 
             int radius = 25; // corner radius, higher value = more rounded
-//            int margin = 10; // crop margin, set to 0 for corners with no crop
 
              String imageUrl;
              if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
                  imageUrl = movie.getBackdropPath();
                  Glide.with(context)
                          .load(imageUrl)
-//                         .centerCrop()
-//                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2)
                          .transform(new RoundedCorners(radius))
                          .placeholder(R.drawable.backimg)
                          .into(ivPoster);
@@ -97,22 +81,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                  Glide.with(context)
                          .load(imageUrl)
                          .fitCenter()
-//                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2)
                          .transform(new RoundedCorners(radius))
                          .placeholder(R.drawable.image)
                          .into(ivPoster);
              }
-
-
-//            Glide.with(context)
-//                    .load(imageUrl)
-//                    .centerCrop()
-////                    .override(Target.SIZE_ORIGINAL* 2, Target.SIZE_ORIGINAL*2)
-//                    .transform(new RoundedCorners(radius))
-//                    .placeholder(R.drawable.image)
-//                    .into(ivPoster);
-
-
         }
 
         @Override
@@ -124,13 +96,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
                 // get the movie at the position, this won't work if the class is static
                 Movie movie = movies.get(position);
                 // create intent for the new activity
-                Intent intent = new Intent(context, DetailActivity.class);
+                Intent intent = new Intent(context, MovieDetailActivity.class);
                 // serialize the movie using parceler, use its short name as a key
                 intent.putExtra(Movie.class.getSimpleName(), Parcels.wrap(movie));
                 // show the activity
                 context.startActivity(intent);
             }
-
         }
     }
 }

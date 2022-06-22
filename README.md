@@ -2,7 +2,7 @@
 
 Flixster_FBU app shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: 24 hours spent in total
+Time spent: 30 hours spent in total
 
 ## User Stories
 
@@ -37,17 +37,28 @@ GIF created with [Kap](https://getkap.co/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+## Challenges encountered while building the app.
+1. Understanding how to correctly fetch data from the the Movie API in the form of a JSONArray.
+2. How to display large sets of data, in this case: a list of movies, while also factoring in the amount of memory space that can be allocated to the application (runtime).
+3. How to implement a placeholder image to be displayed when the movie posters load.
+4. Implementing a dynamic user experience (landscape and portrait viewing modes).
 
 ## Open-source libraries used
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
 - [Glide](https://github.com/bumptech/glide) - Image loading and caching library for Android
 
+## Place holder for review
+-Phil Review
+
+
+## Challenges encountered while building the app.
+
+
 ## License
 
     Copyright [2022] [Chidubem Uba]
-
+    
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
